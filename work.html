@@ -2,85 +2,294 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Blog Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>tact9_BLOG — Работа с нами</title>
 
-  <!-- Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
     }
 
     body {
       background: #e9e9e9;
       display: flex;
       justify-content: center;
-    }
-
-    .page {
-      width: 420px;
-      background: #fff;
+      align-items: center;
       min-height: 100vh;
-      padding-bottom: 40px;
+      font-family: 'Montserrat', sans-serif;
+      padding: 20px;
     }
 
-    /* ЛОГО */
+    
+    .page {
+      max-width: 680px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 24px 42px -16px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    
     .logo {
       text-align: center;
-      padding: 20px 10px 10px;
+      padding: 28px 24px 16px;
+      background: #fff;
     }
 
     .logo img {
       width: 100%;
-      max-width: 350px;
+      max-width: 280px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      transition: max-width 0.2s;
     }
 
-    /* СТАТЬЯ */
+    
     .content {
-      padding: 20px 30px;
-      text-align: center;
+      padding: 8px 32px 44px;
     }
 
+    
+    @media (max-width: 560px) {
+      .content {
+        padding: 8px 22px 38px;
+      }
+      .logo {
+        padding: 22px 20px 12px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .content {
+        padding: 6px 18px 32px;
+      }
+      .logo img {
+        max-width: 220px;
+      }
+    }
+
+    
     .subtitle {
       font-size: 12px;
-      letter-spacing: 2px;
-      color: #777;
-      margin-bottom: 10px;
+      letter-spacing: 2.4px;
+      color: #8e8e98;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     .title {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 15px;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      line-height: 1.28;
+      color: #121212;
+      letter-spacing: -0.3px;
+    }
+
+    
+    .inner-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 28px 0 18px 0;
+      color: #1a2634;
+      border-left: 5px solid #2b7be4;
+      padding-left: 16px;
+      letter-spacing: -0.2px;
     }
 
     .divider {
-      width: 30px;
-      height: 30px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: #eee;
-      margin: 10px auto;
+      background: #eff2f8;
+      margin: 26px auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      color: #555;
+      font-weight: 700;
+      font-size: 20px;
+      color: #5d6f88;
+      transition: all 0.2s;
     }
 
     .text {
       text-align: left;
-      font-size: 13px;
-      line-height: 1.7;
-      color: #444;
-      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.68;
+      color: #2c2f36;
+      font-weight: 400;
     }
 
     .text p {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
+    }
+
+    
+    .styled-list {
+      list-style: none;
+      margin: 18px 0 12px 0;
+      padding-left: 0;
+    }
+
+    .styled-list li {
+      margin-bottom: 18px;
+      padding-left: 28px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 450;
+      color: #1e2a3a;
+    }
+
+    .styled-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 6px;
+      color: #2b7be4;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+   
+    .highlight-number {
+      font-weight: 700;
+      color: #1f6392;
+      background: #eef4fc;
+      padding: 0 4px;
+      border-radius: 8px;
+      font-size: 0.95em;
+    }
+
+    
+    .info-card {
+      background: #f8faff;
+      border-radius: 24px;
+      padding: 18px 20px;
+      margin: 24px 0 16px;
+      border: 1px solid #eef2fc;
+    }
+
+    .info-card p {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .info-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-icon {
+      font-weight: 700;
+      font-size: 18px;
+      min-width: 28px;
+      color: #2b7be4;
+    }
+
+    
+    .process-list {
+      list-style: none;
+      margin: 12px 0 20px;
+      padding-left: 0;
+      counter-reset: step-counter;
+    }
+
+    .process-list li {
+      counter-increment: step-counter;
+      margin-bottom: 20px;
+      padding-left: 40px;
+      position: relative;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .process-list li::before {
+      content: counter(step-counter);
+      background: #2b7be4;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      box-shadow: 0 4px 8px rgba(43, 123, 228, 0.2);
+    }
+
+    
+    .notice {
+      background: #fff6e5;
+      border-radius: 20px;
+      padding: 14px 20px;
+      margin-top: 28px;
+      font-size: 13px;
+      color: #b45f06;
+      border-left: 4px solid #f5a623;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, #e2e8f0, #cbd5e1, #e2e8f0);
+    }
+
+    
+    @media (max-width: 500px) {
+      .title {
+        font-size: 22px;
+      }
+      .inner-title {
+        font-size: 18px;
+      }
+      .text {
+        font-size: 14px;
+      }
+      .styled-list li, .process-list li {
+        font-size: 14px;
+      }
+      .divider {
+        margin: 20px auto;
+        width: 34px;
+        height: 34px;
+      }
+      .info-card {
+        padding: 14px 16px;
+      }
+    }
+
+    
+    a {
+      text-decoration: none;
+    }
+
+    
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      margin-top: 28px;
+      color: #a6a9b2;
+      letter-spacing: 0.4px;
+      font-weight: 400;
+      border-top: 1px solid #edf2f7;
+      padding-top: 20px;
     }
   </style>
 </head>
@@ -89,53 +298,70 @@
 
 <div class="page">
 
-  <!-- ЛОГО -->
+  
   <div class="logo">
-    <img src="logo2.png" alt="logo">
+    <img src="logo2.png" alt="tact9_BLOG logo" onerror="this.src='https://placehold.co/600x200?text=tact9_BLOG'; this.style.opacity='0.9'">
   </div>
 
-  <!-- КОНТЕНТ -->
+ 
   <div class="content">
-    <div class="subtitle">Статья-1</div>
-    <div class="title">Работа с нами</div>
+    <div class="subtitle">СТАТЬЯ • ПРОЦЕСС СОТРУДНИЧЕСТВА</div>
+    <div class="title">🤝 Работа с нами</div>
 
     <div class="divider">+</div>
 
     <div class="text">
-      <p>
-        1 - четкое ТЗ (техническое задание), его нужно указать в сообщении. Если у вас больше ОДНОГО сообщения, пришлите нам ТЗ в формате PDF.
-      </p>
-       <p>
-        2 - круг правок, стандартный круг правок до 3-х штук. Если предыдущие правки вас не устроили, далее идёт оплата по тарифу.
-      </p>
-       <p>
-        3 - средний дедлайн у инфографики от 5 часов до 1 дня. Если будут задержки или какие-то другие изменения, заказчик будет уведомлен. 
-      </p>
-       <p>
-        4 - пожалуйста, не отправляйте спам-сообщения и тп. Это не ускорит работу. 
-      </p>
-
-
-
-       <div class="title">Как я выполняю заказ:</div>
       
+      <div class="info-card">
+        <p><span class="info-icon">📌</span> <strong>1. Четкое ТЗ</strong> — техническое задание нужно указать в сообщении. Если у вас больше ОДНОГО сообщения, пришлите ТЗ в формате PDF.</p>
+        <p><span class="info-icon">✏️</span> <strong>2. Круг правок</strong> — стандартный круг правок до 3-х штук. Если предыдущие правки вас не устроили, далее идёт оплата по тарифу.</p>
+        <p><span class="info-icon">⏱️</span> <strong>3. Средний дедлайн</strong> — у инфографики от 5 часов до 1 дня. При задержках или изменениях заказчик будет уведомлен.</p>
+        <p><span class="info-icon">🚫</span> <strong>4. Коммуникация</strong> — пожалуйста, не отправляйте спам-сообщения и т.п. Это не ускорит работу.</p>
+      </div>
 
-     
+      
+      <div class="inner-title">⚡ Как я выполняю заказ:</div>
+      
+      <ul class="process-list">
+        <li>Анализируем ТЗ и конкурентов (если имеются).</li>
+        <li>Приступаем к работе, разрабатываем прототип дизайна, присылаем на утверждение (правки).</li>
+        <li>Дорабатываем дизайн с учетом комментариев.</li>
+        <li>Отправляем вам законченную работу, после чего получаем оплату и отзыв.</li>
+      </ul>
 
-      <p>
-        1. Анализируем ТЗ и конкурентов (если имеются). 
+      
+      <div class="inner-title" style="margin-top: 12px;">💎 Почему выбирают нас?</div>
+      <ul class="styled-list">
+        <li><span class="highlight-number">Прозрачность</span> — каждый этап согласовывается с вами, вы всегда в курсе статуса.</li>
+        <li><span class="highlight-number">Соблюдение сроков</span> — дедлайн фиксируется сразу, задержки минимальны или с предупреждением.</li>
+        <li><span class="highlight-number">Качество</span> — используем современные тренды и индивидуальный подход к проекту.</li>
+      </ul>
+
+      
+      <div class="notice">
+        📄 <strong>Совет:</strong> Чем детальнее ТЗ — тем быстрее и точнее результат. Не стесняйтесь прикладывать референсы и примеры!
+      </div>
+
+      
+      <p style="margin-top: 18px;">
+        Мы ценим каждого клиента и стремимся сделать процесс комфортным. Работа начинается с анализа идей и заканчивается качественным дизайном, который решает ваши задачи. 
+        Свяжитесь с нами, чтобы обсудить детали — и первый шаг к отличному результату будет сделан.
       </p>
-      <p>
-        2. Приступаем к работе, разрабатываем прототип дизайна, присылаем на утверждение (правки). 
-      </p>
-      <p>
-         3. Дорабатываем дизайн. 
-      </p>
-      <p>
-         4. Отправляем вам законченную работу, после чего получаем оплату и отзыв.
-      </p>
+
+      <div class="divider">✦</div>
+
+      
+      <div style="text-align: center; font-size: 12px; color: #5f6c80; margin-top: 8px;">
+        tact9_BLOG — дизайн, в котором уверены
+      </div>
     </div>
 
+    
+    <div class="footer-note">
+      © 2026 — все права защищены | Работаем на результат
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
