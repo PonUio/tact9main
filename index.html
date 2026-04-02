@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>tact9.blog — Тренды в дизайне 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;   
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            font-family: system-ui, -apple-system, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        
+        .main-container {
+            width: 100%;
+            max-width: 960px;    
+            background-color: #000000;  
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.05), 0 20px 35px -12px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+       
+        .hero-image {
+            width: 100%;
+            display: block;
+            position: relative;  
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+      
+        .pinterest-overlay {
+            position: absolute;
+            bottom: 32px;        
+            left: 32px;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.65);   
+            backdrop-filter: blur(3px);
+            padding: 12px 22px;
+            border-radius: 40px;
+            border-left: 3px solid #e60023;   
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .pinterest-overlay:hover {
+            background: rgba(0, 0, 0, 0.85);
+            transform: translateY(-2px);
+        }
+
+        .pinterest-text {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.2px;
+            color: #ffffff;
+        }
+
+        .pinterest-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            background: #e60023;
+            padding: 2px 8px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .pinterest-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 1px dashed rgba(255,255,255,0.6);
+            transition: border 0.2s, color 0.2s;
+            margin-left: 4px;
+            font-size: 0.95rem;
+        }
+
+        .pinterest-link:hover {
+            color: #e60023;
+            border-bottom-color: #e60023;
+        }
+
+       
+        @media (max-width: 720px) {
+            .pinterest-overlay {
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                padding: 10px 16px;
+                text-align: center;
+                border-radius: 32px;
+            }
+            .pinterest-text {
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+            .pinterest-link {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .pinterest-overlay {
+                bottom: 12px;
+                left: 12px;
+                right: 12px;
+                padding: 8px 14px;
+            }
+            .pinterest-label {
+                font-size: 0.6rem;
+            }
+        }
+
+        
+        .blog-section {
+            padding: 48px 32px 56px 32px;
+            background-color: #000000;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .blog-card {
+            background-color: #000000;
+            transition: transform 0.2s ease, opacity 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .photo-label {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: #aaaaaa;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+            border-left: 2px solid #ffffff;
+            padding-left: 10px;
+            font-family: monospace, 'Courier New', system-ui;
+        }
+
+        .trend-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #ffffff;
+            margin: 8px 0 20px 0;
+            letter-spacing: -0.3px;
+            word-break: break-word;
+        }
+
+        .detail-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background-color: transparent;
+            text-decoration: none;
+            border-bottom: 1.2px solid rgba(255,255,255,0.4);
+            padding-bottom: 4px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .detail-link:hover {
+            color: #cccccc;
+            border-bottom-color: #ffffff;
+            gap: 12px;
+        }
+
+        /* стрелочка для акцента */
+        .detail-link::after {
+            content: "→";
+            font-size: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .detail-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        .site-footer {
+            background-color: #000000;
+            border-top: 1px solid #1f1f1f;
+            padding: 40px 32px 48px 32px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: monospace, 'Courier New', system-ui;
+        }
+
+        .footer-logo span {
+            font-weight: 300;
+            color: #888;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: #5e5e5e;
+            margin-top: 4px;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 450;
+            transition: color 0.2s;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-nav a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .footer-social {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-social a {
+            color: #bbbbbb;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 450;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: color 0.2s;
+        }
+
+        .footer-social a:hover {
+            color: white;
+        }
+        @media (max-width: 860px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+            .blog-section {
+                padding: 40px 24px 48px 24px;
+            }
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .trend-title {
+                font-size: 22px;
+            }
+            .blog-section {
+                padding: 32px 20px 40px 20px;
+            }
+            .site-footer {
+                padding: 32px 20px 36px 20px;
+            }
+            .footer-nav {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+        }
+
+        ::selection {
+            background: #2c2c2c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="hero-image">
+        <img src="Frame 155257652.png"
+             alt="tact9 design header">
+        
+        <div class="pinterest-overlay">
+            <div class="pinterest-text">
+                <span class="pinterest-label">🎯 Pinterest</span>
+                <span style="font-weight: 500;">Наши работы:</span>
+                <a href="https://ru.pinterest.com/tact9/" target="_blank" rel="noopener noreferrer" class="pinterest-link">
+                    ru.pinterest.com/tact9/
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-section">
+        <div class="blog-grid">
+            <!-- карточка 1 -->
+            <div class="blog-card">
+                <div class="photo-label">Статья-1</div>
+                <div class="trend-title">ТРЕНДЫ В ДИЗАЙНЕ 2026</div>
+                <a href="post1.html" class="detail-link" data-trend="1" data-title="ТРЕНДЫ В ДИЗАЙНЕ 2026: неоновый минимализм и текстуры будущего">ПОДРОБНЕЕ</a>
+            </div>
+        </div>
+    </div>
+
+   
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">#tact9<span>.blog</span></div>
+                <div class="footer-copy">© 2026 - TACT9</div>
+            </div>
+            <div class="footer-nav">
+                <a href="#">Главная</a>
+                <a href="https://kwork.ru/user/tact9">Kwork</a>
+                <a href="work.html">Работа с нами</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://t.me/tact9design">Telegram</a>
+                <a href="https://ru.pinterest.com/tact9/" target="_blank">Pinterest</a>
+                <a href="#">VK</a>
+            </div>
+        </div>
+       
+    </footer>
+</div>
+
+
+
+
+</body>
+</html>
